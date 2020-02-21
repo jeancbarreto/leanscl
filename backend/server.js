@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 
 global.__root = __dirname + "/";
 
+
+const db = require("./db");
 const app = express();
 app.use(cors());
 
@@ -18,10 +20,14 @@ app.use(
   app.set("port", process.env.PORT || 3000);
   
   // set the view engine to ejs
-  app.set("view engine", "vue");
-  
+  app.set("view engine", "ejs");
+  console.log(__dirname)
   // make express look in the public directory for assets (css/js/img)
-  app.use(express.static(__dirname + "/public"));
+    app.use('/cssFiles', express.static(__dirname + '/css'));
+    app.use('/jsFiles', express.static(__dirname + '/js'));
+    app.use('/imgFiles', express.static(__dirname + '/assets'));
+  
+  
   
   // set the home page route
   app.get("/", function(req, res) {
@@ -34,6 +40,8 @@ app.use(
       message: "Welcome to API"
     });
   });
+
+  app.use("/api/v1/productos", require("./routes/product"));
 
 app.listen(app.get("port"), () => {
     console.log("Server on port ", app.get("port"));

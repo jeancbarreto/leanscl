@@ -1,0 +1,17 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.img-logo{
+    width: 40px;
+    height: 30px;
+}
+footer{
+    background: black;
+    height: 300px;
+    width: 100%;
+    color:white;
+    text-align: center;
+    justify-content: center;
+}

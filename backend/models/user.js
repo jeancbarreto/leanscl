@@ -39,4 +39,4 @@ const Users = new Schema({
 //     return this.find({ "archivo.name": new RegExp(name, "i") }, cb);
 //   };
   
-  module.exports = mongoose.model("Users", Users);
+  module.exports = mongoose.model("users", Users);
